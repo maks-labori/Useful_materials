@@ -3,8 +3,11 @@
 ### условие : 
 <details>
 <summary><b>развернуть</b></summary>
+
 [Задача 1768](https://leetcode.com/problems/merge-strings-alternately/description/)
 </details>
+
+
 
 **Example 1**:
 Input: word1 = "abc", word2 = "pqr"
@@ -59,6 +62,7 @@ zip(word1,word2) #склеиввает поочередно 2 объекта с 
 ### условие:
 <details>
 <summary><b>развернуть</b></summary>
+
 [Задача 1071](https://leetcode.com/problems/greatest-common-divisor-of-strings/description/)
 </details>
 
@@ -112,6 +116,7 @@ gcd(num,num2) #возврашает Наибольший Общий Делите
 ### условие:
 <details>
 <summary><b>развернуть</b></summary>
+
 [Задача 344](https://leetcode.com/problems/reverse-string/description/)
 </details>
 
@@ -152,6 +157,7 @@ s[:] = s[::-1] #аналог
 
 <details>
 <summary><b>развернуть</b></summary>
+
 [Задача 1](https://leetcode.com/problems/two-sum/description/)
 </details>
 
@@ -211,6 +217,7 @@ for i, num in enumerate(nums):
 
 <details>
 <summary><b>развернуть</b></summary>
+
 [Задача 9](https://leetcode.com/problems/palindrome-number/description/)
 </details>
 
@@ -233,6 +240,7 @@ class Solution:
 
 <details>
 <summary><b>развернуть</b></summary>
+
 [Задача 13](https://leetcode.com/problems/roman-to-integer/description/)
 </details>
 
@@ -286,6 +294,7 @@ class Solution:
 
 <details>
 <summary><b>развернуть</b></summary>
+
 [Задача 14](https://leetcode.com/problems/longest-common-prefix/description/)
 </details>
 
@@ -339,6 +348,7 @@ string.find(prefix) ## аналог prefix in string,только возвращ
 
 <details>
 <summary><b>развернуть</b></summary>
+
 [Задача 20](https://leetcode.com/problems/valid-parentheses/description/)
 </details>
 
@@ -389,6 +399,7 @@ Output: false
 
 <details>
 <summary><b>развернуть</b></summary>
+
 [Задача 21](https://leetcode.com/problems/merge-two-sorted-lists/description/)
 </details>
 
@@ -441,6 +452,7 @@ from typing import Optional # обертка для списков с доп п�
 
 <details>
 <summary><b>развернуть</b></summary>
+
 [Задача 26](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
 </details>
 
@@ -505,6 +517,7 @@ dudl = set() / dubl = {1,2,3} - создание множеств
 
 <details>
 <summary><b>развернуть</b></summary>
+
 [Задача 27](https://leetcode.com/problems/remove-element/description/)
 </details>
 
@@ -555,6 +568,7 @@ class Solution:
 
 <details>
 <summary><b>развернуть</b></summary>
+
 [Задача 121](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
 </details>
 
@@ -586,6 +600,7 @@ class Solution:
 
 <details>
 <summary><b>развернуть</b></summary>
+
 [Задача 141](https://leetcode.com/problems/linked-list-cycle/description/)
 </details>
 
@@ -639,6 +654,7 @@ class Solution:
 
 <details>
 <summary><b>развернуть</b></summary>
+
 [Задача 206](https://leetcode.com/problems/reverse-linked-list/description/)
 </details>
 
