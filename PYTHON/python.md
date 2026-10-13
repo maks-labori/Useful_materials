@@ -1,5 +1,5 @@
 # Материалы по python
 
-- [Django](PYTHON/DJANGO/django.md)
-- [Leetcode](PYTHON/LEETCODE/leetcode.md)
-- [Other](PYTHON/OTHER/other.md)
+- [Django](DJANGO/django.md)
+- [Leetcode](LEETCODE/leetcode.md)
+- [Other](OTHER/other.md)
