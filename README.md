@@ -1,22 +1,9 @@
 # Полезные материалы 
 
 - [PYTHON](PYTHON/python.md)
-    - [Django](PYTHON/DJANGO/django.md)
-    - [Leetcode](PYTHON/LEETCODE/leetcode.md)
-    - [Other](PYTHON/OTHER/other.md)
+
 - [SQL](SQL/sql.md)
-    - [Commands](SQL/COMMANDS/commands.md)
-    - [Indexes](SQL/INDEXES/indexes.md)
-    - [Type DB](SQL/TYPE_DB/type_db.md)
-    - [Other](SQL/OTHER/other.md)
+
 - [C++](CPP/cpp.md)
-    - [Base structures](CPP/BASE_STRUCTURES/base_structures.md)
-    - [CMake](CPP/CMAKE/cmake.md)
-    - [UNIVERSITY PROJECTS](CPP/UNIVERSITY_PROJECTS/university_projects.md)
-    - [Codeforces](CPP/CODEFORCES/codeforces.md)
-    - [Other](CPP/OTHER/other.md)
+
 - [GIT / GITHUB](GIT_GITHUB/git.md)
-    - [Command git](GIT_GITHUB/COMMAND_GIT/command_git.md)
-    - [Command terminal](GIT_GITHUB/COMMAND_TERMINAL/command_terminal.md)
-    - [Repositories](GIT_GITHUB/REPOSITORIES/repositories.md)
-    - [Other](GIT_GITHUB/OTHER/other.md)
