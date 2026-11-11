@@ -1,3 +1,27 @@
+# Решения задач на leetcode (python/c++)
+
+## Содержание
+* [1. Two Sum](#1-two-sum)
+* [2. Add Two Numbers ](#2-add-two-numbers)
+* [9. Palindrome Number](#9-palindrome-number)
+* [13. Roman to Integer](#13-roman-to-integer)
+* [14. Longest Common Prefix](#14-longest-common-prefix)
+* [20. Valid Parentheses](#20-valid-parentheses)
+* [21. Merge Two Sorted Lists](#21-merge-two-sorted-lists)
+* [26. Remove Duplicates from Sorted Array](#26-remove-duplicates-from-sorted-array)
+* [27. Remove Element](#27-remove-element)
+* [28. Find the Index of the First Occurrence in a String](#28-find-the-index-of-the-first-occurrence-in-a-string)
+* [35. Search Insert Position](#35-search-insert-position)
+* [58. Length of Last Word](#58-length-of-last-word)
+* [66. Plus One](#66-plus-one)
+* [121. Best Time to Buy and Sell Stock](#121-best-time-to-buy-and-sell-stock)
+* [141. Linked List Cycle](#141-linked-list-cycle)
+* [206. Reverse Linked List](#206-reverse-linked-list)
+* [344. Reverse String](#344-reverse-string)
+* [1071. Greatest Common Divisor of Strings](#1071-greatest-common-divisor-of-strings)
+* [1768. Merge Strings Alternately](#1768-merge-strings-alternately)
+
+
 ## 1768. Merge Strings Alternately
 
 ### условие : 
@@ -705,4 +729,296 @@ class Solution:
 #fast нужен чтобы просто не потерять откуда считать
 #prev slow fast
 #None   0    1       направляем slow в prev
+```
+
+## 28. Find the Index of the First Occurrence in a String
+
+### условие:
+
+<details>
+<summary><b>развернуть</b></summary>
+
+[Задача 28](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/)
+</details>
+
+**Example 1**:
+Input: haystack = "sadbutsad", needle = "sad"
+Output: 0
+
+**Example 2**:
+Input: haystack = "leetcode", needle = "leeto"
+Output: -1
+
+### решение моё(оно же идеальное)
+```c++
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        if(needle.size() > haystack.size()){return -1;}
+        if(needle.empty() || needle == haystack){return 0;}
+        int size = needle.size();
+        for(int i = 0;i<haystack.size()-size+1;++i){
+            string res = haystack.substr(i,size);
+            if(res == needle){return i;}
+        }
+        return -1;
+    }
+};
+```
+### решение на питоне той же задачки
+```python
+class Solution:
+    def strStr(self, haystack, needle):
+        for i in range(len(haystack) - len(needle) + 1):
+            if haystack[i:i+len(needle)] == needle:
+                return i
+        return -1
+```
+
+## 35. Search Insert Position
+
+### условие:
+
+<details>
+<summary><b>развернуть</b></summary>
+
+[Задача 35](https://leetcode.com/problems/search-insert-position/description/)
+</details>
+
+**Example 1**:
+Input: nums = [1,3,5,6], target = 5
+Output: 2
+
+**Example 2**:
+Input: nums = [1,3,5,6], target = 2
+Output: 1
+
+### решение моё(оно же идеальное,даже компактнее многих из топа)
+```c++
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        if(nums.empty()){return 0;}
+        int first = 0;
+        int end = nums.size()-1;
+        while(first <= end){
+            int ind = first + (end - first)/2;
+            if(nums[ind] < target){first = ind+1;}
+            else if(nums[ind] > target){end = ind-1;}
+            else{return ind;}
+        }
+        return first;
+    }
+};
+```
+### решение на питоне той же задачки(обычный бинарный поиск)
+```python
+class Solution:
+    def searchInsert(self, nums, target):
+        start = 0
+        end = len(nums) - 1
+        mid = 0
+        while start <= end:
+            mid = start + (end - start) // 2
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] < target:
+                start = mid + 1
+            else:
+                end = mid - 1
+        return mid + 1 if target > nums[mid] else mid
+```
+
+## 58. Length of Last Word
+
+### условие:
+
+<details>
+<summary><b>развернуть</b></summary>
+
+[Задача 58](https://leetcode.com/problems/length-of-last-word/description/)
+</details>
+
+**Example 1**:
+Input: s = "Hello World"
+Output: 5
+
+**Example 2**:
+Input: s = "   fly me   to   the moon  "
+Output: 4
+
+### решение моё(оно же идеальное)
+```c++
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        int size = s.length();
+        int count = 0;
+        for(int i = size-1;i>=0;--i){
+            if(s[i] == ' ' && count == 0){continue;}
+            if(s[i] == ' '){break;}
+            count++;
+        }
+        return count;
+    }
+};
+```
+### решение на питоне той же задачки
+```python
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        words = s.split()
+        if not words:
+            return 0
+        return len(words[-1])
+```
+
+## 66. Plus One
+
+### условие:
+
+<details>
+<summary><b>развернуть</b></summary>
+
+[Задача 66](https://leetcode.com/problems/plus-one/description/)
+</details>
+
+**Example 1**:
+Input: digits = [1,2,3]
+Output: [1,2,4]
+
+**Example 2**:
+Input: digits = [9]
+Output: [1,0]
+
+### решение моё(оно же идеальное)
+```c++
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        int size = digits.size();
+        if(digits[size-1] != 9){digits[size-1]++;return digits;}
+        auto it = digits.end()-1;
+        while(*it == 9){
+            *it = 0;
+            if(it == digits.begin()){++(*it);digits.push_back(0);return digits;}
+            it--;
+        }
+        ++(*it);
+        return digits;
+    }
+};
+
+прикольное наблюдение - если делать пуш,то после этого итератор слетает с адреса
+```
+### решение на питоне той же задачки
+```python
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        carry = 1
+        for i in range(len(digits) - 1, -1, -1):
+            s = digits[i] + carry
+            digits[i] = s % 10
+            carry = s // 10
+        if carry:
+            digits = [1] + digits
+        return digits
+```
+
+## 2. Add Two Numbers 
+```diff
+! middle lvl
+```
+
+### условие:
+
+<details>
+<summary><b>развернуть</b></summary>
+
+[Задача 2](https://leetcode.com/problems/add-two-numbers/description/)
+</details>
+
+**Example 1**:
+Input: l1 = [2,4,3], l2 = [5,6,4]
+Output: [7,0,8]
+Explanation: 342 + 465 = 807.
+
+**Example 2**:
+Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+Output: [8,9,9,9,0,0,0,1]
+
+### решение моё(немного костыльное,но решил)
+```c++
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        int one = l1->val,two = l2->val;
+        int ost = (one + two)/10;
+        ListNode* start = new ListNode((one+two)%10);
+        ListNode* res = start;
+        if(l1){one = l1->val;l1 = l1->next;}
+        if(l2){two = l2->val;l2 = l2->next;}
+        while(l1|| l2){
+            one = 0,two = 0;
+            if(l1){one = l1->val;l1 = l1->next;}
+            if(l2){two = l2->val;l2 = l2->next;}
+            ListNode* res = new ListNode((one+two+ost)%10);
+            ost = (one+two+ost)/10;
+            start->next = res;
+            start = start->next;
+        }
+        if(ost!=0){
+            ListNode* finish = new ListNode(ost);
+            start->next = finish;
+        }
+        return res;
+    }
+};
+
+прикольное наблюдение - если использовать if(l1.next == nullptr),то это работает в разы дольше,чем просто if(l1)
+```
+### более чистое решение той же задачки
+```c++
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode* head = new ListNode(0);
+        ListNode* start = head;
+        int ost = 0;
+        while(l1 || l2 || ost != 0){
+            int one = (l1) ? l1->val : 0;
+            int two = (l2) ? l2->val : 0;
+            ListNode* res = new ListNode((one+two+ost)%10);
+            ost = (one+two+ost)/10;
+
+            start->next = res;
+            start = start->next;
+
+            l1 = (l1) ? l1->next : nullptr;
+            l2 = (l2) ? l2->next : nullptr;
+
+        }
+        ListNode* result =head->next;
+        delete head;
+        return result;
+    }
+};
+```
+### решение на питоне
+```python
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        dummy = cur =ListNode(0)
+        carry = 0
+        while l1 or l2 or carry:
+            if l1:
+                carry += l1.val
+                l1 = l1.next
+            if l2:
+                carry += l2.val
+                l2 = l2.next
+            cur.next = ListNode(carry%10)
+            cur = cur.next
+            carry //=10
+        return dummy.next
 ```
